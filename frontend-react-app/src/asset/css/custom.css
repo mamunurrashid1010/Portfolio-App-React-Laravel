@@ -1,4 +1,5 @@
 /* home top banner */
+
 .topFixedBanner{
     background-image: url("../image/banner.webp");
     min-height: 500px;
@@ -11,11 +12,10 @@
     position: absolute;
     min-height: 500px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .topBannerContent{
-    margin-top: 10rem;
+    margin-top: 9rem;
 }
 .topBannerTitle{
     font-family: 'montserreat','sans-serif';
@@ -28,4 +28,38 @@
     font-weight: 700;
     color: #ffffff;
     font-size: 20px;
+}
+
+
+/* home service section */
+.serviceTitle{
+    color: darkblue;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-family: 'montserreat','sans-serif';
+    font-size: 28px;
+    font-weight: 600;
+}
+.serviceName{
+    margin-top: 1rem;
+    font-family: 'Raleway','sans-serif';
+    font-size: 22px;
+    font-weight: 600;
+}
+.serviceDetails{
+    color: #7F7E7E;
+    margin-top: 1rem;
+    font-family: 'Raleway','sans-serif';
+    font-size: 15px;
+    font-weight: 500;
+    text-align: justify;
+}
+.serviceCard{
+    margin: 5px;
+    height: 24rem;
+    padding: 60px 30px 60px 30px;
+    box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2);
+}
+.serviceCard:hover{
+    box-shadow: 0 0 8px 0 rgba(0, 115, 230, 0.2);
 }
