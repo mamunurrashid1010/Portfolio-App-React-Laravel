@@ -1,3 +1,50 @@
+/* home top navigation */
+
+.navTitle{
+    font-family: 'montserreat','sans-serif';
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 5px;
+}
+.navTitleScroll{
+    font-family: 'montserreat','sans-serif';
+    color: darkblue !important;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 5px;
+}
+.navBackground{
+    -webkit-transition: background-color 400ms linear;
+    -moz-transition: background-color 400ms linear;
+    -o-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.navBackgroundScroll{
+    -webkit-transition: background-color 400ms linear;
+    -moz-transition: background-color 400ms linear;
+    -o-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    background-color: #ffffff !important;
+}
+.navItem{
+    font-size: 16px;
+    text-decoration: none !important;
+    font-family: 'montserreat','sans-serif';
+    font-weight: 400;
+    color: #ffffff !important;
+    margin-left: 5px;
+}
+.navItemScroll{
+    font-size: 16px;
+    text-decoration: none !important;
+    font-family: 'montserreat','sans-serif';
+    font-weight: 400;
+    color: darkblue !important;
+    margin-left: 5px;
+}
+
 /* home top banner */
 
 .topFixedBanner{
