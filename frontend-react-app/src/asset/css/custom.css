@@ -110,3 +110,14 @@
 .serviceCard:hover{
     box-shadow: 0 0 8px 0 rgba(0, 115, 230, 0.2);
 }
+
+
+/* home analysis section */
+
+.analysisDetails{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Raleway','sans-serif';
+    text-align: justify;
+    color: #000000;
+}
