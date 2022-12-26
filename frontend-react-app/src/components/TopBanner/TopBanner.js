@@ -10,9 +10,9 @@ class TopBanner extends Component{
                         <Container className="topBannerContent">
                             <Row>
                                 <Col className="text-center">
-                                    <h1 className="topBannerTitle">Software Engineer</h1>
-                                    <h4 className="topBannerSubTitle">Web App & Rest API Development</h4>
-                                    <Button variant="primary">More Info</Button>
+                                    <h1 className="topBannerTitle">Hi, I am <span style={{color:'#ffa731'}}>Mamunur Rashid</span></h1>
+                                    <h4 className="topBannerSubTitle">Software Engineer</h4>
+                                    <Button variant="warning">More Info</Button>
                                 </Col>
                             </Row>
                         </Container>

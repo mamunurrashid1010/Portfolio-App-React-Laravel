@@ -48,7 +48,7 @@
 /* home top banner */
 
 .topFixedBanner{
-    background-image: url("../image/banner.webp");
+    background-image: url("../image/background1.jpg");
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
@@ -59,7 +59,7 @@
     position: absolute;
     min-height: 500px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 .topBannerContent{
     margin-top: 9rem;
@@ -92,6 +92,7 @@
     font-family: 'Raleway','sans-serif';
     font-size: 22px;
     font-weight: 600;
+    color: darkblue;
 }
 .serviceDetails{
     color: #7F7E7E;
@@ -112,7 +113,7 @@
 }
 
 
-/* home analysis section */
+/* home analysis/technology used section */
 
 .analysisDetails{
     font-size: 15px;
@@ -120,4 +121,60 @@
     font-family: 'Raleway','sans-serif';
     text-align: justify;
     color: #000000;
+}
+
+
+/* home summary section */
+
+.summaryBanner{
+    background-image: url("../image/background.webp");
+    min-height: 330px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.summaryOverlay{
+    position: absolute;
+    min-height: 330px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.countNumber{
+    color: #ffffff;
+    font-family: 'montserreat','sans-serif';
+    font-size: 48px;
+    font-weight: 600;
+}
+.countTitle{
+    color: #ffffff;
+    font-family: 'Raleway','sans-serif';
+    font-size: 22px;
+    font-weight: 600;
+}
+.countSection{
+    margin-top: 15%;
+}
+.summaryCard{
+    margin-top: 13%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+}
+.summaryCardTitle{
+    color: #000000;
+    font-family: 'Raleway','sans-serif';
+    font-size: 26px;
+    font-weight: 600;
+    text-align: justify;
+}
+.summaryCardSubTitle{
+    color: #000000;
+    font-family: 'montserreat','sans-serif';
+    font-size: 17px;
+    font-weight: 400;
+    text-align: justify;
+}
+.summaryIcon{
+    color: darkblue;
+    font-size: 16px;
 }
