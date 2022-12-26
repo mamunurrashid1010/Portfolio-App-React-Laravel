@@ -82,7 +82,7 @@
 .serviceTitle{
     color: darkblue;
     margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-family: 'montserreat','sans-serif';
     font-size: 28px;
     font-weight: 600;
@@ -128,7 +128,7 @@
 
 .summaryBanner{
     background-image: url("../image/background.webp");
-    min-height: 330px;
+    min-height: 340px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -136,7 +136,7 @@
 }
 .summaryOverlay{
     position: absolute;
-    min-height: 330px;
+    min-height: 340px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
 }
@@ -177,4 +177,30 @@
 .summaryIcon{
     color: darkblue;
     font-size: 16px;
+}
+
+
+/* home project section */
+
+.projectCard{
+    border-radius: 2px;
+    border: none !important;
+    margin: 2px 2px 2px 2px;
+    box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2);
+    height: 27rem;
+    width: 100%;
+}
+.projectCard:hover{
+    box-shadow: 0 0 8px 0 rgba(0, 115, 230, 0.2);
+}
+.projectCardTitle{
+    font-family: 'montserreat','sans-serif';
+    font-size: 18px;
+    font-weight: 600;
+    color: darkblue;
+}
+.projectCardDes{
+    font-family: 'Raleway','sans-serif';
+    font-size: 15px;
+    font-weight: 400;
 }
