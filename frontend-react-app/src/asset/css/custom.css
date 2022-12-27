@@ -272,3 +272,52 @@
     font-size: 15px;
     font-weight: 500;
 }
+
+/* home footer section */
+
+.footerSection{
+    box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2);
+    margin-top: 5rem;
+    background-color: #091634;
+}
+.footerName{
+    margin-top: 1rem;
+    font-family: 'Raleway','sans-serif';
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffa731;
+}
+.footerAddress{
+    color: white;
+    margin-top: 1rem;
+    font-family: 'montserreat','sans-serif';
+    font-size: 17px;
+    font-weight: 500;
+}
+.socialLink{
+    text-decoration: none;
+    color: rgb(29, 123, 231);
+    font-family: 'Raleway','sans-serif';
+    font-size: 14px;
+    font-weight: 600;
+}
+.socialLink:hover{
+    text-decoration: none;
+    color: gray;
+}
+.footerLink{
+    text-decoration: none;
+    color: white;
+    font-family: 'Raleway','sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+}
+.footerLink:hover{
+    text-decoration: none;
+    color: darkgray;
+}
+.copyWriteSection{
+    padding: 20px;
+    background-color: #15233a;
+    color: white;
+}
