@@ -10,6 +10,7 @@ import Summary from './components/Summary/Summary';
 import Projects from './components/Projects/Projects';
 import Courses from './components/Courses/Courses';
 import Video from './components/Video/Video';
+import ClientReview from './components/ClientReview/ClientReview';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Projects/>
         <Courses/>
         <Video/>
+        <ClientReview/>
     </div>
   );
 }

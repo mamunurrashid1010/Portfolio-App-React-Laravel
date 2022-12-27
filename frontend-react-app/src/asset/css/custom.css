@@ -82,7 +82,7 @@
 .serviceTitle{
     color: darkblue;
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-family: 'montserreat','sans-serif';
     font-size: 28px;
     font-weight: 600;
@@ -223,7 +223,9 @@
     text-align: justify;
 }
 
+
 /* home video section */
+
 .VideoCard{
     box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2);
     padding: 6rem 3rem 6rem 3rem;
@@ -245,4 +247,28 @@
     font-size: 44px;
     color: darkblue;
     cursor: pointer;
+}
+
+/* home client review section */
+
+.clientImage{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+.reviewName{
+    margin-top: 1rem;
+    font-family: 'Raleway','sans-serif';
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+}
+.reviewDetails{
+    color: #7F7E7E;
+    margin-top: 1rem;
+    font-family: 'Raleway','sans-serif';
+    font-size: 15px;
+    font-weight: 500;
 }
