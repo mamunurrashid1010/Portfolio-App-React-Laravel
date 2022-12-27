@@ -222,3 +222,27 @@
     font-weight: 400;
     text-align: justify;
 }
+
+/* home video section */
+.VideoCard{
+    box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2);
+    padding: 6rem 3rem 6rem 3rem;
+    background-color: #ffffff;
+    margin: 50px auto;
+}
+.videoTitle{
+    font-family: 'montserreat','sans-serif';
+    font-size: 24px;
+    font-weight: 600;
+    color: darkblue;
+}
+.videoDes{
+    font-family: 'Raleway','sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+}
+.playButton{
+    font-size: 44px;
+    color: darkblue;
+    cursor: pointer;
+}

@@ -9,6 +9,7 @@ import Analysis from './components/Analysis/Analysis';
 import Summary from './components/Summary/Summary';
 import Projects from './components/Projects/Projects';
 import Courses from './components/Courses/Courses';
+import Video from './components/Video/Video';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Summary/>
         <Projects/>
         <Courses/>
+        <Video/>
     </div>
   );
 }
