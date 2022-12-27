@@ -204,3 +204,21 @@
     font-size: 15px;
     font-weight: 400;
 }
+
+/* home courses section */
+
+.courseImage{
+    width: 100%;
+}
+.courseTitle{
+    font-family: 'montserreat','sans-serif';
+    font-size: 18px;
+    font-weight: 600;
+    color: darkblue;
+}
+.courseDes{
+    font-family: 'Raleway','sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    text-align: justify;
+}

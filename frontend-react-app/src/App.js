@@ -8,6 +8,7 @@ import TopNavigation from './components/TopNavigation/TopNavigation';
 import Analysis from './components/Analysis/Analysis';
 import Summary from './components/Summary/Summary';
 import Projects from './components/Projects/Projects';
+import Courses from './components/Courses/Courses';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Analysis/>
         <Summary/>
         <Projects/>
+        <Courses/>
     </div>
   );
 }

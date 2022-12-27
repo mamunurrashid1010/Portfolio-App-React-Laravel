@@ -20,7 +20,7 @@ class TopBanner extends Component{
                                                 sequence={[
                                                 'Software Engineer', 1000,
                                                 'Full Stack Web Developer', 1000,
-                                                'API Developer', 1000,
+                                                'Rest API Developer', 1000,
                                                 ]}
                                                 speed={1} // Custom Speed from 1-99 - Default Speed: 40
                                                 wrapper="span" // Animation will be rendered as a <span>
