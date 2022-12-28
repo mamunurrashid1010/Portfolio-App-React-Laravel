@@ -229,7 +229,7 @@
 .VideoCard{
     box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2);
     padding: 6rem 3rem 6rem 3rem;
-    background-color: #ffffff;
+    background-color: #f8f9fa;
     margin: 50px auto;
 }
 .videoTitle{
@@ -317,7 +317,7 @@
     color: darkgray;
 }
 .copyWriteSection{
-    padding: 20px;
+    padding: 10px;
     background-color: #15233a;
     color: white;
 }
