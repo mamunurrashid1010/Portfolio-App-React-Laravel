@@ -62,7 +62,7 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 .topBannerContent{
-    margin-top: 9rem;
+    margin-top: 11rem;
 }
 .topBannerTitle{
     font-family: 'montserreat','sans-serif';
@@ -156,7 +156,7 @@
     margin-top: 15%;
 }
 .summaryCard{
-    margin-top: 13%;
+    margin-top: 12%;
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
 }

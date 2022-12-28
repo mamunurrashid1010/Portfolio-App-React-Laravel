@@ -11,15 +11,16 @@ class TopNavigation extends Component{
             NavLogo:[NavBarLogo],
             navBarBackground:"navBackground",
             navBarItem:"navItem",
+            navVariant:"dark",
         }
     }
 
     onScroll=()=>{
         if(window.scrollY >= 100){
-            this.setState({navBarTitle:"navTitleScroll", NavLogo:[NavBarScrollLogo], navBarBackground:"navBackgroundScroll", navBarItem:"navItemScroll"});
+            this.setState({navBarTitle:"navTitleScroll", NavLogo:[NavBarScrollLogo], navBarBackground:"navBackgroundScroll", navBarItem:"navItemScroll", navVariant:"light"});
         }
         else if(window.scrollY < 100){
-            this.setState({navBarTitle:"navTitle", NavLogo:[NavBarLogo], navBarBackground:"navBackground", navBarItem:"navItem"});
+            this.setState({navBarTitle:"navTitle", NavLogo:[NavBarLogo], navBarBackground:"navBackground", navBarItem:"navItem", navVariant:"dark"});
         }
     }
 
@@ -30,7 +31,7 @@ class TopNavigation extends Component{
     render() {
         return (
             <Fragment>
-                <Navbar fixed="top" className={this.state.navBarBackground} collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar fixed="top" className={this.state.navBarBackground} collapseOnSelect expand="lg" bg="dark" variant={this.state.navVariant}>
                         <Navbar.Brand className={this.state.navBarTitle}> <img src={this.state.NavLogo} width="40px" height="30px" /> Mamunur Rashid</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">

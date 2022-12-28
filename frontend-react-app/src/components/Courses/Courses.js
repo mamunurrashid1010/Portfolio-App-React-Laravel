@@ -11,7 +11,7 @@ class Courses extends Component {
                 <h1 className='serviceTitle text-center'>COURSES</h1>
                     {/* row-1 */}
                     <Row>
-                        <Col sm={12} md={12} lg={6}>
+                        <Col sm={12} md={12} lg={6} className='p-2'>
                             <Row>
                                 <Col sm={12} md={6} lg={6}>
                                     <img src={webDesign1} className='courseImage' />
@@ -26,7 +26,7 @@ class Courses extends Component {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col sm={12} md={12} lg={6}>
+                        <Col sm={12} md={12} lg={6} className='p-2'>
                             <Row>
                                 <Col sm={12} md={6} lg={6}>
                                     <img src={webDesign2} className='courseImage' />
@@ -45,7 +45,7 @@ class Courses extends Component {
 
                     {/* row-2 */}
                     <Row>
-                        <Col sm={12} md={12} lg={6}>
+                        <Col sm={12} md={12} lg={6} className='p-2'>
                             <Row>
                                 <Col sm={12} md={6} lg={6}>
                                     <img src={webDesign2} className='courseImage' />
@@ -60,7 +60,7 @@ class Courses extends Component {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col sm={12} md={12} lg={6}>
+                        <Col sm={12} md={12} lg={6} className='p-2'>
                             <Row>
                                 <Col sm={12} md={6} lg={6}>
                                     <img src={webDesign1} className='courseImage' />
