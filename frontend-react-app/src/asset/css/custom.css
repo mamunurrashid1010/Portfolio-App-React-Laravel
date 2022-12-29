@@ -348,3 +348,20 @@
     color: #ffffff;
     font-size: 40px;
 }
+
+
+/* contact page section */
+
+.formTitle{
+    color: #242323;
+    margin-top: 1rem;
+    font-family: 'Raleway','sans-serif';
+    font-size: 15px;
+    font-weight: 500;
+    text-align: justify;
+}
+.form-control:focus{
+    border-radius: 5px !important;
+    border-color: rgb(89, 190, 197) !important;
+    box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2) !important;
+}
