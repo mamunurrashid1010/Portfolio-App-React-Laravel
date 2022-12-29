@@ -32,6 +32,7 @@ class TopNavigation extends Component{
     render() {
         return (
             <Fragment>
+                <title>{this.props.title}</title>
                 <Navbar fixed="top" className={this.state.navBarBackground} collapseOnSelect expand="lg" bg="dark" variant={this.state.navVariant}>
                         <Navbar.Brand className={this.state.navBarTitle}> <img src={this.state.NavLogo} width="40px" height="30px" /> Mamunur Rashid</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
