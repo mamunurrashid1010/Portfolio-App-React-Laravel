@@ -2,12 +2,15 @@ import logo from './logo.svg';
 // import './App.css';
 import '../src/asset/css/bootstrap.min.css'
 import '../src/asset/css/custom.css';
-import HomePage from './pages/HomePage';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './route/AppRouter';
 
 function App() {
   return (
     <div className="App">
-        <HomePage/>
+        <BrowserRouter>
+        <AppRouter/>
+        </BrowserRouter>
     </div>
   );
 }
