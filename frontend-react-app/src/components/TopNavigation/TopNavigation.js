@@ -42,7 +42,7 @@ class TopNavigation extends Component{
                             <Nav.Link href="#deets" className={this.state.navBarItem}>ABOUT</Nav.Link>
                             <Nav.Link href="#deets" className={this.state.navBarItem}>SERVICES</Nav.Link>
                             <Nav.Link href="#deets" className={this.state.navBarItem}>COURSES</Nav.Link>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>PORTFOLIO</Nav.Link>
+                            <Nav.Link href="#deets" className={this.state.navBarItem}>PROJECTS</Nav.Link>
                             <Nav.Link href="#deets" className={this.state.navBarItem}>CONTACT</Nav.Link>
                     
                         </Nav>
