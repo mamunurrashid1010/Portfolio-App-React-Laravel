@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 import NavBarScrollLogo from '../../asset/image/programmer.png';
 import NavBarLogo from '../../asset/image/programing.png';
+import { NavLink } from 'react-router-dom';
 
 class TopNavigation extends Component{
     constructor(){
@@ -38,12 +39,12 @@ class TopNavigation extends Component{
                         <Nav className="me-auto">
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>HOME</Nav.Link>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>ABOUT</Nav.Link>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>SERVICES</Nav.Link>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>COURSES</Nav.Link>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>PROJECTS</Nav.Link>
-                            <Nav.Link href="#deets" className={this.state.navBarItem}>CONTACT</Nav.Link>
+                            <Nav.Link> <NavLink exact activeStyle={{color:"green"}} to="/" className={this.state.navBarItem}>HOME</NavLink> </Nav.Link>
+                            <Nav.Link> <NavLink to="/about" className={this.state.navBarItem}>ABOUT</NavLink> </Nav.Link>
+                            <Nav.Link> <NavLink to="/service" className={this.state.navBarItem}>SERVICES</NavLink> </Nav.Link>
+                            <Nav.Link> <NavLink to="/course" className={this.state.navBarItem}>COURSES</NavLink> </Nav.Link>
+                            <Nav.Link> <NavLink to="/project" className={this.state.navBarItem}>PROJECTS</NavLink> </Nav.Link>
+                            <Nav.Link> <NavLink to="/contact" className={this.state.navBarItem}>CONTACT</NavLink> </Nav.Link>
                     
                         </Nav>
                         </Navbar.Collapse>
