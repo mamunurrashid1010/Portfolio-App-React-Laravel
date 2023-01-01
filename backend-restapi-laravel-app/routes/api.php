@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ClientReviewController;
+use App\Http\Controllers\ContactsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::get('/getAllTechnologies',[ChartController::class,'getAllTechnologies']);
 
 # client review
 Route::get('/getAllClientReviews',[ClientReviewController::class,'getAllClientReviews']);
+
+# contact
+Route::post('/contact/store',[ContactsController::class,'store']);
