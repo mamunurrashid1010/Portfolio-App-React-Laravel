@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\ClientReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 # technology (chart)
 Route::get('/getAllTechnologies',[ChartController::class,'getAllTechnologies']);
+
+# client review
+Route::get('/getAllClientReviews',[ClientReviewController::class,'getAllClientReviews']);
