@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ClientReviewController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\CoursesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,8 @@ Route::get('/getAllClientReviews',[ClientReviewController::class,'getAllClientRe
 
 # contact
 Route::post('/contact/store',[ContactsController::class,'store']);
+
+# courses
+Route::get('/course/getFourCourse',[CoursesController::class,'getFourCourse']);
+Route::get('/course/getAllCourse',[CoursesController::class,'getAllCourse']);
+Route::get('/course/details/{id}',[CoursesController::class,'details']);
