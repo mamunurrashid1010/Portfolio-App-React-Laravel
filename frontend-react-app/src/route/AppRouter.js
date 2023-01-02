@@ -6,6 +6,7 @@ import ServicePage from '../pages/ServicePage';
 import CoursesPage from '../pages/CoursesPage';
 import ProjectPage from '../pages/ProjectPage';
 import ContactPage from '../pages/ContactPage';
+import RefundPolicyPage from '../pages/RefundPolicyPage';
 
 class AppRouter extends Component {
     render() {
@@ -18,6 +19,7 @@ class AppRouter extends Component {
                     <Route path="/course"   element={<CoursesPage/>} />
                     <Route path="/project"  element={<ProjectPage/>} />
                     <Route path="/contact"  element={<ContactPage/>} />
+                    <Route path="/refundPolicy" element={<RefundPolicyPage/>} />
                 </Routes>
             </Fragment>
         );
