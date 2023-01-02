@@ -204,6 +204,12 @@
     font-size: 15px;
     font-weight: 400;
 }
+.projectDetailsButton{
+    text-decoration: none !important;
+}
+.projectDetailsButton:hover{
+    text-decoration: none !important;
+}
 
 /* home courses section */
 

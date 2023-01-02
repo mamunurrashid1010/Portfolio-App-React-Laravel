@@ -8,6 +8,7 @@ import ProjectPage from '../pages/ProjectPage';
 import ContactPage from '../pages/ContactPage';
 import RefundPolicyPage from '../pages/RefundPolicyPage';
 import TermsPage from '../pages/TermsPage';
+import ProjectDetailsPage from '../pages/ProjectDetailsPage';
 
 class AppRouter extends Component {
     render() {
@@ -19,6 +20,7 @@ class AppRouter extends Component {
                     <Route path="/service"  element={<ServicePage/>} />
                     <Route path="/course"   element={<CoursesPage/>} />
                     <Route path="/project"  element={<ProjectPage/>} />
+                    <Route path="/project/details/1" element={<ProjectDetailsPage/>} />
                     <Route path="/contact"  element={<ContactPage/>} />
                     <Route path="/refundPolicy" element={<RefundPolicyPage/>} />
                     <Route path="/termsCondition" element={<TermsPage/>} />

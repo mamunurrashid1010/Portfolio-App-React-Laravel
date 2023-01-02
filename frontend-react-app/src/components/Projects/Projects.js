@@ -3,6 +3,7 @@ import { Col, Container, Row, Card, Button } from 'react-bootstrap';
 import projectImage1 from '../../asset/image/Website-Mockup.webp';
 import projectImage2 from '../../asset/image/website-mockup2.jpg';
 import projectImage3 from '../../asset/image/admin-mockup3.webp';
+import { Link } from 'react-router-dom';
 
 class Projects extends Component {
     render() {
@@ -20,7 +21,7 @@ class Projects extends Component {
                                     Some quick example text to build on the card title and make up the
                                     bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="outline-info w-100">Details</Button>
+                                    <Button variant="outline-info w-100"><Link to="/project/details/1" className='projectDetailsButton'>Details</Link></Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -33,7 +34,7 @@ class Projects extends Component {
                                     Some quick example text to build on the card title and make up the
                                     bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="outline-info w-100">Details</Button>
+                                    <Button variant="outline-info w-100"><Link to="/project/details/1" className='projectDetailsButton'>Details</Link></Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -46,7 +47,7 @@ class Projects extends Component {
                                     Some quick example text to build on the card title and make up the
                                     bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="outline-info w-100">Details</Button>
+                                    <Button variant="outline-info w-100"><Link to="/project/details/1" className='projectDetailsButton'>Details</Link></Button>
                                 </Card.Body>
                             </Card>
                         </Col>
