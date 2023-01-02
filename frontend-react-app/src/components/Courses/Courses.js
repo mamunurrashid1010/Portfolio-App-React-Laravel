@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import webDesign1 from '../../asset/image/webDesign1.png';
 import webDesign2 from '../../asset/image/webDesign2.png';
 
@@ -22,7 +23,7 @@ class Courses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details1</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -37,7 +38,7 @@ class Courses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -56,7 +57,7 @@ class Courses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -71,7 +72,7 @@ class Courses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>

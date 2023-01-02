@@ -228,7 +228,39 @@
     font-weight: 400;
     text-align: justify;
 }
-
+.topBannerContent__CourseDetailsPage{
+    margin-top: 6rem;
+}
+.courseTitle_CourseDetailsPage{
+    font-family: 'Raleway','sans-serif';
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+.courseSubTitle_CourseDetailsPage{
+    font-family: 'montserreat','sans-serif';
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+.courseDes_CourseDetailsPage{
+    font-family: 'Raleway','sans-serif';
+    font-size: 15px;
+    font-weight: 400;
+    text-align: justify;
+    color: white;
+}
+.courseBodyTitle_CourseDetailsPage{
+    font-family: 'Raleway','sans-serif';
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+}
+.courseBodyDes_CourseDetailsPage{
+    font-family: 'Raleway','sans-serif';
+    font-size: 15px;
+    font-weight: 400;
+}
 
 /* home video section */
 

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import webDesign1 from '../../asset/image/webDesign1.png';
 import webDesign2 from '../../asset/image/webDesign2.png';
+import { Link } from 'react-router-dom';
 
 class AllCourses extends Component {
     render() {
@@ -22,7 +23,7 @@ class AllCourses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -37,7 +38,7 @@ class AllCourses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -56,7 +57,7 @@ class AllCourses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -71,7 +72,7 @@ class AllCourses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -90,7 +91,7 @@ class AllCourses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -105,7 +106,7 @@ class AllCourses extends Component {
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                                     </p>
-                                    <Button className='btn btn-primary'>Details</Button>
+                                    <Link to="/course/details/1"><Button className='btn btn-primary'>Details</Button></Link>
                                 </Col>
                             </Row>
                         </Col>

@@ -9,6 +9,7 @@ import ContactPage from '../pages/ContactPage';
 import RefundPolicyPage from '../pages/RefundPolicyPage';
 import TermsPage from '../pages/TermsPage';
 import ProjectDetailsPage from '../pages/ProjectDetailsPage';
+import CourseDetailsPage from '../pages/CourseDetailsPage';
 
 class AppRouter extends Component {
     render() {
@@ -19,6 +20,7 @@ class AppRouter extends Component {
                     <Route path="/about"    element={<AboutPage/>} />
                     <Route path="/service"  element={<ServicePage/>} />
                     <Route path="/course"   element={<CoursesPage/>} />
+                    <Route path="/course/details/1" element={<CourseDetailsPage/>} />
                     <Route path="/project"  element={<ProjectPage/>} />
                     <Route path="/project/details/1" element={<ProjectDetailsPage/>} />
                     <Route path="/contact"  element={<ContactPage/>} />
