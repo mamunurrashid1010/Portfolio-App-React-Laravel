@@ -4,8 +4,10 @@ import PageTop from '../components/PageTop/PageTop';
 import Footer from '../components/Footer/Footer';
 import ProjectDetails from '../components/Projects/ProjectDetails';
 
-
 class ProjectDetailsPage extends Component {
+    componentDidMount(){
+        window.scroll(0,0);
+    }
     render() {
         return (
             <Fragment>

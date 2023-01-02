@@ -6,6 +6,9 @@ import Services from '../components/Services/Services';
 import ContactSection from '../components/ContactSection/ContactSection'
 
 class ServicePage extends Component {
+    componentDidMount(){
+        window.scroll(0,0);
+    }
     render() {
         return (
             <Fragment>

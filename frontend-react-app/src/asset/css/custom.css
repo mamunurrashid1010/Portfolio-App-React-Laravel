@@ -27,6 +27,7 @@
     -o-transition: background-color 400ms linear;
     transition: background-color 400ms linear;
     background-color: #ffffff !important;
+    box-shadow: 0 0 6px 0 rgba(0, 115, 230, 0.3);
 }
 .navItem{
     font-size: 16px;
