@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientReviewController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\HomeCommonController;
 use App\Http\Controllers\LegalCommonsController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\ServicesController;
@@ -41,6 +42,16 @@ Route::get('/project/details/{id}',[ProjectsController::class,'details']);
 Route::get('/course/getFourCourse',[CoursesController::class,'getFourCourse']);
 Route::get('/course/getAllCourse',[CoursesController::class,'getAllCourse']);
 Route::get('/course/details/{id}',[CoursesController::class,'details']);
+
+# home
+# top banner (home)
+Route::get('/home/topBanner/getTopBannerContent',[HomeCommonController::class,'getTopBannerContent']);
+# technology used : description (home)
+Route::get('/home/technology/getTechnologyDescription',[HomeCommonController::class,'getTechnologyDescription']);
+# counter : project,client (home)
+Route::get('/home/counter/getCountingDetails',[HomeCommonController::class,'getCountingDetails']);
+# video (home)
+Route::get('/home/video/getVideoInfo',[HomeCommonController::class,'getVideoInfo']);
 
 # client review
 Route::get('/getAllClientReviews',[ClientReviewController::class,'getAllClientReviews']);
