@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\LegalCommonsController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+# service
+Route::get('/service/getAllService',[ServicesController::class,'getAllService']);
 
 # technology (chart)
 Route::get('/getAllTechnologies',[ChartController::class,'getAllTechnologies']);
