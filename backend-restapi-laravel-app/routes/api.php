@@ -4,6 +4,7 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ClientReviewController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\FooterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,6 @@ Route::post('/contact/store',[ContactsController::class,'store']);
 Route::get('/course/getFourCourse',[CoursesController::class,'getFourCourse']);
 Route::get('/course/getAllCourse',[CoursesController::class,'getAllCourse']);
 Route::get('/course/details/{id}',[CoursesController::class,'details']);
+
+# footer
+Route::get('/footer/getFooterContent',[FooterController::class,'getFooterContent']);
