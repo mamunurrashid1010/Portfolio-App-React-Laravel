@@ -6,6 +6,7 @@ class ApiUrl{
     //------------- home ------------------
     static topBannerContent = this.baseUrl+'/home/topBanner/getTopBannerContent';
     static serviceUrl = this.baseUrl+'/service/getAllService';
+    static getThreeProjectUrl = this.baseUrl+'/project/getThreeProject';
 
 }
 
