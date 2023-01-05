@@ -10,6 +10,9 @@ class ApiUrl{
     static getFourCoursetUrl = this.baseUrl+'/course/getFourCourse';
     static getallClientReviewUrl = this.baseUrl+'/getAllClientReviews';
 
+    //------------- Course ------------------
+    static getAllCoursetUrl = this.baseUrl+'/course/getAllCourse';
+
 }
 
 export default ApiUrl;
