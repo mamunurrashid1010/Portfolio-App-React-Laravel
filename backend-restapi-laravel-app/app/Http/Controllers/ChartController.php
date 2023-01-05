@@ -12,7 +12,7 @@ class ChartController extends Controller
      * return technologies list
      */
     public function getAllTechnologies(){
-        $technologies = Chart::select('id','x_data','y_data')->get();
+        $technologies = Chart::select('id','technology','projects')->get();
         return $technologies;
     }
 }

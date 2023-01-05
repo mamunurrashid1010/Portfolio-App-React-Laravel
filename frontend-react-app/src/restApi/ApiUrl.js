@@ -6,6 +6,8 @@ class ApiUrl{
     //------------- home ------------------
     static topBannerContent = this.baseUrl+'/home/topBanner/getTopBannerContent';
     static serviceUrl = this.baseUrl+'/service/getAllService';
+    static technologyChartDataUrl = this.baseUrl+'/getAllTechnologies';
+    static technologyDesUrl = this.baseUrl+'/home/technology/getTechnologyDescription';
     static getThreeProjectUrl = this.baseUrl+'/project/getThreeProject';
     static getFourCoursetUrl = this.baseUrl+'/course/getFourCourse';
     static getallClientReviewUrl = this.baseUrl+'/getAllClientReviews';
