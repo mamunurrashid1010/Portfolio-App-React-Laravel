@@ -8,6 +8,7 @@ class ApiUrl{
     static serviceUrl = this.baseUrl+'/service/getAllService';
     static getThreeProjectUrl = this.baseUrl+'/project/getThreeProject';
     static getFourCoursetUrl = this.baseUrl+'/course/getFourCourse';
+    static getallClientReviewUrl = this.baseUrl+'/getAllClientReviews';
 
 }
 

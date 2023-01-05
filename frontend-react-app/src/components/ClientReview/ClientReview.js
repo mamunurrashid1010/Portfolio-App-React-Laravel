@@ -5,8 +5,26 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Col, Container, Row } from 'react-bootstrap';
 import manPhoto from '../../asset/image/cartoon-photo.png';
+import axios from 'axios';
+import ApiUrl from '../../restApi/ApiUrl';
 
 class ClientReview extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
+    }
+    componentDidMount(){
+        axios.get(ApiUrl.getallClientReviewUrl)
+        .then(response=>{
+            this.setState({data:response.data});
+        })
+        .catch(error=>{
+
+        })
+    }
+
     render() {
 
         var settings = {
@@ -48,53 +66,28 @@ class ClientReview extends Component {
             ]
           };
 
+          // data mapping
+        const reviewData = this.state.data;
+        const dataView = reviewData.map(d=>{
+            return <div>
+                        <Row className='text-center justify-content-center'>
+                            <Col sm={12} md={6} lg={6}>
+                                <img className='clientImage' src={d.image} />
+                                <h1 className='reviewName'>{d.name}</h1>
+                                <p className='reviewDetails'>
+                                    {d.description}
+                                </p>
+                            </Col>
+                        </Row>
+                    </div>
+        })
+
         return (
             <Fragment>
                 <Container>
                     <h1 className='serviceTitle text-center'>CLIENT REVIEW</h1>
                     <Slider {...settings}>
-                        {/* slider 1 */}
-                        <div>
-                            <Row className='text-center justify-content-center'>
-                                <Col sm={12} md={6} lg={6}>
-                                    <img className='clientImage' src={manPhoto} />
-                                    <h1 className='reviewName'>Web Development</h1>
-                                    <p className='reviewDetails'>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-
-                        {/* slider 2 */}
-                        <div>
-                            <Row className='text-center justify-content-center'>
-                                <Col sm={12} md={6} lg={6}>
-                                    <img className='clientImage' src={manPhoto} />
-                                    <h1 className='reviewName'>Web Development</h1>
-                                    <p className='reviewDetails'>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-
-                        {/* slider 3 */}
-                        <div>
-                            <Row className='text-center justify-content-center'>
-                                <Col sm={12} md={6} lg={6}>
-                                    <img className='clientImage' src={manPhoto} />
-                                    <h1 className='reviewName'>Web Development</h1>
-                                    <p className='reviewDetails'>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-
+                        {dataView}
                     </Slider>
                 </Container>
             </Fragment>
