@@ -13,6 +13,9 @@ class ApiUrl{
     //------------- Course ------------------
     static getAllCoursetUrl = this.baseUrl+'/course/getAllCourse';
 
+    //------------- Project ------------------
+    static getAllProjectUrl = this.baseUrl+'/project/getAllProject';
+
 }
 
 export default ApiUrl;
