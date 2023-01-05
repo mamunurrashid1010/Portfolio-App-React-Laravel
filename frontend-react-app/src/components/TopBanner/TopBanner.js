@@ -1,8 +1,26 @@
+import axios from "axios";
 import React, { Component, Fragment } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { TypeAnimation } from "react-type-animation";
+import ApiUrl from "../../restApi/ApiUrl";
 
 class TopBanner extends Component{
+    constructor(){
+        super();
+        this.state={
+            title:"",
+            subTitle:"",
+        }
+    }
+    componentDidMount(){
+        axios.get(ApiUrl.topBannerContent)
+        .then(response=>{
+            this.setState({title:response.data['title'], subTitle:response.data['sub_title']});
+        })
+        .catch(error=>{
+            this.setState({title:'---', subTitle:'----'});
+        })
+    }
     render(){
         return(
             <Fragment>
@@ -11,8 +29,7 @@ class TopBanner extends Component{
                         <Container className="topBannerContent">
                             <Row>
                                 <Col className="text-center">
-                                    <h1 className="topBannerTitle">Hi, I am <span style={{color:'#ffa731'}}>Mamunur Rashid</span>
-                                    </h1>
+                                    <h1 className="topBannerTitle">Hi, I am <span style={{color:'#ffa731'}}>{this.state.title}</span></h1>
                                     
                                     <h4 className="topBannerSubTitle">
                                         <TypeAnimation
