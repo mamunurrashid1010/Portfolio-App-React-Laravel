@@ -1,38 +1,33 @@
 import React, { Component, Fragment } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import ApiUrl from '../../restApi/ApiUrl';
+import axios from 'axios';
+import parse from 'html-react-parser';
 
 class AboutDescription extends Component {
+    constructor(){
+        super();
+        this.state={
+            description:"",
+        }
+    }
+
+    componentDidMount(){
+        axios.get(ApiUrl.getCommonLegalUrl)
+        .then(response=>{
+            this.setState({description:response.data[0]['about']});
+        })
+        .catch(error=>{
+
+        })
+    }
     render() {
         return (
             <Fragment>
                 <Container>
                     <Row>
                         <Col sm={12} md={12} lg={12} className="mt-5">
-                            <h1 className='serviceName'>Who i Am</h1>
-                            <hr/>
-                            <p className='serviceDetails'>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-
-                            <h1 className='serviceName'>My Mission</h1>
-                            <hr/>
-                            <p className='serviceDetails'>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-
-                            <h1 className='serviceName'>My Vision</h1>
-                            <hr/>
-                            <p className='serviceDetails'>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
+                            {parse(this.state.description)}
                         </Col>
                     </Row>
                 </Container>
