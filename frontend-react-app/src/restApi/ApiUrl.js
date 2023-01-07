@@ -20,6 +20,9 @@ class ApiUrl{
 
     //------------- Project ------------------
     static getAllProjectUrl = this.baseUrl+'/project/getAllProject';
+
+    //------------- Footer ------------------
+    static getFooterContentUrl = this.baseUrl+'/footer/getFooterContent';
     
 
 }

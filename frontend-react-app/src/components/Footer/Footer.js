@@ -4,8 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import ApiUrl from '../../restApi/ApiUrl';
 
 class Footer extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
+    }
+    componentDidMount(){
+        axios.get(ApiUrl.getFooterContentUrl)
+        .then(response=>{
+            this.setState({data:response.data});
+        })
+        .catch(error=>{
+
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -18,9 +36,9 @@ class Footer extends Component {
                         </Col>
                         <Col sm={12} md={6} lg={3} className='p-5'>
                             <h1 className='footerName'>Address</h1>
-                            <p className='footerAddress'>Chandgaon Residential Area, Chandgaon, Chittagong.</p>
-                            <p  className='footerAddress'><FontAwesomeIcon icon={faEnvelope} /> mamunurrashid1010@gmail.com</p>
-                            <p  className='footerAddress'><FontAwesomeIcon icon={faPhone} /> 1812985897</p>
+                            <p className='footerAddress'>{this.state.data.address}</p>
+                            <p  className='footerAddress'><FontAwesomeIcon icon={faEnvelope} /> {this.state.data.email}</p>
+                            <p  className='footerAddress'><FontAwesomeIcon icon={faPhone} /> {this.state.data.phone}</p>
                         </Col>
                         <Col sm={12} md={6} lg={3} className='p-5'>
                             <h1 className='footerName'>Information</h1>
@@ -37,7 +55,7 @@ class Footer extends Component {
                     </Row>
                 </Container>
                 <Container fluid={true} className='text-center copyWriteSection'>
-                    <p>Mamunur Rashid &copy; 2023-2024 </p>
+                    <p>{this.state.data.footer_credit} </p>
                 </Container>
             </Fragment>
         );

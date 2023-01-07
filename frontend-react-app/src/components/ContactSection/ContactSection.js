@@ -3,8 +3,26 @@ import { Col, Container, Row, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import ApiUrl from '../../restApi/ApiUrl';
 
 class ContactSection extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
+    }
+    componentDidMount(){
+        axios.get(ApiUrl.getFooterContentUrl)
+        .then(response=>{
+            this.setState({data:response.data});
+        })
+        .catch(error=>{
+
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -33,9 +51,9 @@ class ContactSection extends Component {
 
                         <Col sm={12} md={6} lg={6}>
                             <h1 className='serviceName'>Discuss Now</h1>
-                            <p  className='serviceDetails'>Chandgaon Residential Area, Chandgaon, Chittagong.</p>
-                            <p  className='serviceDetails'><FontAwesomeIcon icon={faEnvelope} /> mamunurrashid1010@gmail.com</p>
-                            <p  className='serviceDetails'><FontAwesomeIcon icon={faPhone} /> 1812985897</p>
+                            <p  className='serviceDetails'>{this.state.data.address}</p>
+                            <p  className='serviceDetails'><FontAwesomeIcon icon={faEnvelope} /> {this.state.data.email}</p>
+                            <p  className='serviceDetails'><FontAwesomeIcon icon={faPhone} /> {this.state.data.phone}</p>
                         </Col>
                     </Row>
                 </Container>
