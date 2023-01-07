@@ -12,7 +12,7 @@ class ApiUrl{
     static getFourCoursetUrl = this.baseUrl+'/course/getFourCourse';
     static getallClientReviewUrl = this.baseUrl+'/getAllClientReviews';
 
-    //------------- About ------------------
+    //------------- About & legal------------------
     static getCommonLegalUrl = this.baseUrl+'/legal/getLegalContent';
 
     //------------- Course ------------------
@@ -20,6 +20,7 @@ class ApiUrl{
 
     //------------- Project ------------------
     static getAllProjectUrl = this.baseUrl+'/project/getAllProject';
+    
 
 }
 
