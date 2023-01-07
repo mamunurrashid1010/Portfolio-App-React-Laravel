@@ -12,7 +12,7 @@ class FooterController extends Controller
      * return all footer content
      */
     public function getFooterContent(){
-        $footers = Footer::all();
+        $footers = Footer::first();
         return $footers;
     }
 }
