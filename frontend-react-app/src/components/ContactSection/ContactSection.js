@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Col, Container, Row, Form, Button } from 'react-bootstrap';
+import { Col, Container, Row, Form, Button, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,9 @@ class ContactSection extends Component {
     constructor(){
         super();
         this.state={
-            data:[]
+            data:[],
+            contactSendNotification:"",
+            alertMessage:"d-none",
         }
     }
     componentDidMount(){
@@ -23,27 +25,48 @@ class ContactSection extends Component {
         })
     }
 
+    // contact send
+    sendContactInfo=()=>{
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+        var data={
+                'name': name,
+                'email': email,
+                'message': message,
+        };
+
+        axios.post(ApiUrl.postContactInfoUrl,data)
+        .then(response=>{
+            this.setState({contactSendNotification:response.data.message, alertMessage:""});
+        })
+        .catch(error=>{
+            this.setState({contactSendNotification:"Fail!", alertMessage:""})
+        })
+    }
+
     render() {
         return (
             <Fragment>
                 <Container className='mt-5'>
                     <Row>
                         <Col sm={12} md={6} lg={6}>
+                            <div className={this.state.alertMessage}><Alert className='alert alert-info'>{this.state.contactSendNotification}</Alert></div>
                             <h1 className='serviceName'>Quick Connect</h1>
                             <Form>
                                 <Form.Group className="mb-3">
                                     <Form.Label className='formTitle'>Name</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter name" />
+                                    <Form.Control id="name" type="text" placeholder="Enter name" />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label className='formTitle'>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" />
+                                    <Form.Control id="email" type="email" placeholder="Enter email" />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label className='formTitle'>Message</Form.Label>
-                                    <Form.Control as="textarea" rows={3} />
+                                    <Form.Control id="message" as="textarea" rows={3} />
                                 </Form.Group>
-                                <Button variant="primary" type="submit">
+                                <Button variant="primary" onClick={this.sendContactInfo}>
                                     Submit
                                 </Button>
                             </Form>
