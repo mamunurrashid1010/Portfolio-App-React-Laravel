@@ -4,13 +4,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import 'video-react/dist/video-react.css';
 import { Player,BigPlayButton } from 'video-react';
+import axios from 'axios';
+import ApiUrl from '../../restApi/ApiUrl';
 
 class Video extends Component {
     constructor(){
         super();
         this.state={
             show:false,
+            data:[],
         }
+    }
+    componentDidMount(){
+        axios.get(ApiUrl.getVideoContenetUrl)
+        .then(response=>{
+            this.setState({data:response.data});
+        })
+        .catch(error=>{
+
+        })
     }
 
     modalClose=()=>this.setState({show:false});
@@ -23,11 +35,9 @@ class Video extends Component {
                     <Row>
                         <Col sm={12} md={12} lg={12} className='VideoCard'>
                             <div>
-                                <p className='videoTitle'>How I Do</p>
+                                <p className='videoTitle'>{this.state.data.video_title}</p>
                                 <p className='videoDes'>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    {this.state.data.video_description}
                                 </p>
                                 <p>
                                     <FontAwesomeIcon icon={faPlayCircle} className='playButton' onClick={this.modalOpen} />
@@ -43,7 +53,7 @@ class Video extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <Player>
-                            <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+                            <source src={this.state.data.video_url} />
                             <BigPlayButton position='center'/>
                         </Player>
                     </Modal.Body>

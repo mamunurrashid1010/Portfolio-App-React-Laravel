@@ -10,6 +10,7 @@ class ApiUrl{
     static technologyDesUrl = this.baseUrl+'/home/technology/getTechnologyDescription';
     static getThreeProjectUrl = this.baseUrl+'/project/getThreeProject';
     static getFourCoursetUrl = this.baseUrl+'/course/getFourCourse';
+    static getVideoContenetUrl = this.baseUrl+'/home/video/getVideoInfo';
     static getallClientReviewUrl = this.baseUrl+'/getAllClientReviews';
 
     //------------- About & legal------------------
