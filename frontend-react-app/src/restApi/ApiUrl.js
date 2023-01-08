@@ -21,6 +21,7 @@ class ApiUrl{
 
     //------------- Project ------------------
     static getAllProjectUrl = this.baseUrl+'/project/getAllProject';
+    static getProjectDetailsUrl = this.baseUrl+'/project/details/';
 
     //------------- Contact ------------------
     static postContactInfoUrl = this.baseUrl+'/contact/store';

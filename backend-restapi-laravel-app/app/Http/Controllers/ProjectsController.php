@@ -31,7 +31,7 @@ class ProjectsController extends Controller
      */
     public function details(Request $request){
         $id = $request->id;
-        $projectDetails = Projects::where('id',$id)->get();
+        $projectDetails = Projects::where('id',$id)->first();
         return $projectDetails;
     }
 }
