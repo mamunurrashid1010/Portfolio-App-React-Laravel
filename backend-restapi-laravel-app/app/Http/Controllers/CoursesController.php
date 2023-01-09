@@ -31,7 +31,7 @@ class CoursesController extends Controller
      */
     public function details(Request $request){
         $id = $request->id;
-        $courseDetails = Courses::where('id',$id)->get();
+        $courseDetails = Courses::where('id',$id)->first();
         return $courseDetails;
     }
 }

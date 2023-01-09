@@ -18,6 +18,7 @@ class ApiUrl{
 
     //------------- Course ------------------
     static getAllCoursetUrl = this.baseUrl+'/course/getAllCourse';
+    static getCourseDetailsUrl = this.baseUrl+'/course/details/';
 
     //------------- Project ------------------
     static getAllProjectUrl = this.baseUrl+'/project/getAllProject';

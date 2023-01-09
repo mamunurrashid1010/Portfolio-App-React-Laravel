@@ -4,14 +4,18 @@ import Footer from '../components/Footer/Footer';
 import CourseDetails from '../components/Courses/CourseDetails';
 
 class CourseDetailsPage extends Component {
-    componentDidMount(){
-        window.scroll(0,0);
+    constructor(){
+        super();
+        this.state={
+            courseId: window.location.href.split('/')[5],
+        }
     }
+
     render() {
         return (
             <Fragment>
                 <TopNavigation title="Course Details"/>
-                <CourseDetails/>
+                <CourseDetails courseId={this.state.courseId} />
                 <Footer/>
             </Fragment>
         );

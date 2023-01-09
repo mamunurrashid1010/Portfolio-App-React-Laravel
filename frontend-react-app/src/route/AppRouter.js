@@ -20,7 +20,7 @@ class AppRouter extends Component {
                     <Route path="/about"    element={<AboutPage/>} />
                     <Route path="/service"  element={<ServicePage/>} />
                     <Route path="/course"   element={<CoursesPage/>} />
-                    <Route path="/course/details/1" element={<CourseDetailsPage/>} />
+                    <Route path="/course/details/:id" element={<CourseDetailsPage/>} />
                     <Route path="/project"  element={<ProjectPage/>} />
                     <Route path="/project/details/:id" element={<ProjectDetailsPage/>} />
                     <Route path="/contact"  element={<ContactPage/>} />
