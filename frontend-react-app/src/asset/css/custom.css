@@ -404,3 +404,11 @@
     border-color: rgb(89, 190, 197) !important;
     box-shadow: 0 0 4px 0 rgba(0, 115, 230, 0.2) !important;
 }
+
+
+/* lading animation */
+
+.loaderAnimation{
+    height: 180px;
+    width: 180px;
+}
