@@ -38,7 +38,7 @@ class ProjectDetails extends Component {
                             <ul className='projectCardDes'>
                                 {this.state.data['feature']}
                             </ul>
-                            <Button variant='primary'>Live Preview</Button>
+                            <Button variant='primary' href={"//"+this.state.data['live_link']} target="_blank" >Live Preview</Button>
                         </Col>
                     </Row>
                 </Container>

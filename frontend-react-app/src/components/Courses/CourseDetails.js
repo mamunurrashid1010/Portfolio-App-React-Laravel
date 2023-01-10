@@ -57,7 +57,7 @@ class CourseDetails extends Component {
                             <ul className='courseBodyDes_CourseDetailsPage'>
                                 {this.state.data['long_description']}
                             </ul>
-                            <Button variant='primary'>Live Preview</Button>
+                            <Button variant='primary' href={"//"+this.state.data['courses_link']} target="_blank" >Live Preview</Button>
                         </Col>
                         <Col sm={12} md={6} lg={6}>
                             <Player>

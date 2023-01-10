@@ -31,8 +31,8 @@ class Footer extends Component {
                     <Row>
                         <Col sm={12} md={6} lg={3} className='p-5'>
                             <h1 className='footerName'>Follow Me</h1>
-                            <a href='#' className='socialLink'><FontAwesomeIcon icon={faFacebook} /> Facebook</a><br/>
-                            <a href='#' className='socialLink'><FontAwesomeIcon icon={faYoutube} /> YouTube</a>
+                            <a href={"//"+this.state.data.facebook_link} target="_blank" className='socialLink'><FontAwesomeIcon icon={faFacebook} /> Facebook</a><br/>
+                            <a href={"//"+this.state.data.youtube_link} target="_blank" className='socialLink'><FontAwesomeIcon icon={faYoutube} /> YouTube</a>
                         </Col>
                         <Col sm={12} md={6} lg={3} className='p-5'>
                             <h1 className='footerName'>Address</h1>
