@@ -6,18 +6,20 @@ import projectImage3 from '../../asset/image/admin-mockup3.webp';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ApiUrl from '../../restApi/ApiUrl';
+import Loading from '../Loading/Loading';
 
 class AllProject extends Component {
     constructor(){
         super();
         this.state={
-            data:[]
+            data:[],
+            loading: true,
         }
     }
     componentDidMount(){
         axios.get(ApiUrl.getAllProjectUrl)
         .then(response=>{
-            this.setState({data:response.data});
+            this.setState({data:response.data, loading:false});
         })
         .catch(error=>{
 
@@ -42,7 +44,11 @@ class AllProject extends Component {
                     </Col>
         })
 
-        return (
+        if(this.state.loading == true){
+            return <Loading/>;
+        }
+        else{
+            return (
             <Fragment>
                 <Container className='mt-5'>
                     <Row>
@@ -50,8 +56,10 @@ class AllProject extends Component {
                     </Row>
                 </Container>
             </Fragment>
-        );
+            );
+        }
     }
+        
 }
 
 export default AllProject;

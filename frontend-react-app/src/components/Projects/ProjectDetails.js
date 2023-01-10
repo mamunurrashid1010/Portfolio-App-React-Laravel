@@ -4,6 +4,7 @@ import projectImage1 from '../../asset/image/Website-Mockup.webp';
 import axios from 'axios';
 import ApiUrl from '../../restApi/ApiUrl';
 import parse from 'html-react-parser';
+import Loading from '../Loading/Loading';
 
 class ProjectDetails extends Component {
     constructor(props){
@@ -11,13 +12,14 @@ class ProjectDetails extends Component {
         this.state={
             id: this.props.id,
             data:[],
-            description:"aadfdsfdsfdsf"
+            description:"aadfdsfdsfdsf",
+            loading: true,
         }
     }
     componentDidMount(){
         axios.get(ApiUrl.getProjectDetailsUrl+this.state.id)
         .then(response=>{
-            this.setState({data:response.data});
+            this.setState({data:response.data, loading:false});
         })
         .catch(error=>{
 
@@ -25,7 +27,12 @@ class ProjectDetails extends Component {
     }
 
     render() {
-        return (
+
+        if(this.state.loading == true){
+            return <Loading/>;
+        }
+        else{
+            return (
             <Fragment>
                 <Container className='mt-5'>
                     <Row>
@@ -43,7 +50,9 @@ class ProjectDetails extends Component {
                     </Row>
                 </Container>
             </Fragment>
-        );
+            );
+        }
+        
     }
 }
 

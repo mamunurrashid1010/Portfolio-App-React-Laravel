@@ -5,18 +5,20 @@ import webDesign2 from '../../asset/image/webDesign2.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ApiUrl from '../../restApi/ApiUrl';
+import Loading from '../Loading/Loading';
 
 class AllCourses extends Component {
     constructor(){
         super();
         this.state={
-            data:[]
+            data:[],
+            loading: true,
         }
     }
     componentDidMount(){
         axios.get(ApiUrl.getAllCoursetUrl)
         .then(response=>{
-            this.setState({data:response.data});
+            this.setState({data:response.data, loading:false});
         })
         .catch(error=>{
 
@@ -43,18 +45,22 @@ class AllCourses extends Component {
                     </Col>
         })
 
-        return (
-            <Fragment>
-                <Container className='mt-5'>
-                {/* <h1 className='serviceTitle text-center'>COURSES</h1> */}
-                   
-                    <Row>
-                        {dataView}
-                    </Row>
+        if(this.state.loading == true){
+            return <Loading/>;
+        }
+        else{ 
+            return (
+                <Fragment>
+                    <Container className='mt-5'>
+                    {/* <h1 className='serviceTitle text-center'>COURSES</h1> */}
+                        <Row>
+                            {dataView}
+                        </Row>
 
-                </Container>
-            </Fragment>
-        );
+                    </Container>
+                </Fragment>
+            );
+        }
     }
 }
 

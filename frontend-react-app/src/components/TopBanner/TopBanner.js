@@ -3,6 +3,7 @@ import React, { Component, Fragment } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { TypeAnimation } from "react-type-animation";
 import ApiUrl from "../../restApi/ApiUrl";
+import Loading from '../Loading/Loading';
 
 class TopBanner extends Component{
     constructor(){
@@ -10,12 +11,14 @@ class TopBanner extends Component{
         this.state={
             title:"",
             subTitle:"",
+            loadingClass: "d-none",
+            loadingImage:"",
         }
     }
     componentDidMount(){
         axios.get(ApiUrl.topBannerContent)
         .then(response=>{
-            this.setState({title:response.data['title'], subTitle:response.data['sub_title']});
+            this.setState({title:response.data['title'], subTitle:response.data['sub_title'], loadingClass:"", loadingImage:"d-none"});
         })
         .catch(error=>{
             this.setState({title:'---', subTitle:'----'});
@@ -28,6 +31,11 @@ class TopBanner extends Component{
                     <div className="topBannerOverlay">
                         <Container className="topBannerContent">
                             <Row>
+                                <Col className={this.state.loadingImage}>
+                                    <Loading/>
+                                </Col>
+                            </Row>
+                            <Row className={this.state.loadingClass}>
                                 <Col className="text-center">
                                     <h1 className="topBannerTitle">Hi, I am <span style={{color:'#ffa731'}}>{this.state.title}</span></h1>
                                     

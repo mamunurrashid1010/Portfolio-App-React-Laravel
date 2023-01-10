@@ -5,6 +5,7 @@ import { Player,BigPlayButton } from 'video-react';
 import parse from 'html-react-parser'
 import axios from 'axios';
 import ApiUrl from '../../restApi/ApiUrl';
+import Loading from '../Loading/Loading';
 
 class CourseDetails extends Component {
     constructor(props){
@@ -12,6 +13,7 @@ class CourseDetails extends Component {
         this.state={
             courseId: this.props.courseId,
             data:[],
+            loading: true,
         }
     }
     componentDidMount(){
@@ -19,7 +21,7 @@ class CourseDetails extends Component {
 
         axios.get(ApiUrl.getCourseDetailsUrl+this.state.courseId)
         .then(response=>{
-            this.setState({data:response.data});
+            this.setState({data:response.data, loading:false});
         })
         .catch(error=>{
 
@@ -27,7 +29,11 @@ class CourseDetails extends Component {
     }
 
     render() {
-        return (
+        if(this.state.loading == true){
+            return <Loading/>;
+        }
+        else{
+            return (
             <Fragment>
                 {/* top section */}
                 <Container fluid={true} className="topFixedBanner_otherPage p-0">
@@ -69,7 +75,9 @@ class CourseDetails extends Component {
                 </Container>
 
             </Fragment>
-        );
+            );
+        }
+        
     }
 }
 

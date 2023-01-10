@@ -5,18 +5,20 @@ import myIcon2 from '../../asset/image/mobileapp.png';
 import myIcon3 from '../../asset/image/computer.png';
 import axios from 'axios';
 import ApiUrl from '../../restApi/ApiUrl';
+import Loading from '../Loading/Loading';
 
 class Services extends Component {
     constructor(){
         super();
         this.state={
-            data:[]
+            data:[],
+            loading: true,
         }
     }
     componentDidMount(){
         axios.get(ApiUrl.serviceUrl)
         .then(response=>{
-            this.setState({data:response.data});
+            this.setState({data:response.data, loading:false});
         })
         .catch(error=>{
 
@@ -36,7 +38,11 @@ class Services extends Component {
         </Col>
         });
 
-        return (
+        if(this.state.loading == true){
+            return <Loading/>;
+        }
+        else{
+           return (
             <Fragment>
                 <Container className='text-center'>
                     <h1 className='serviceTitle'>MY SERVICES</h1>
@@ -45,7 +51,9 @@ class Services extends Component {
                     </Row>
                 </Container>
             </Fragment>
-        );
+            ); 
+        }
+        
     }
 }
 
