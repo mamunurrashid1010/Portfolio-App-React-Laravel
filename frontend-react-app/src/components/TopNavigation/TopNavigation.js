@@ -3,6 +3,7 @@ import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 import NavBarScrollLogo from '../../asset/image/programmer.png';
 import NavBarLogo from '../../asset/image/programing.png';
 import { NavLink } from 'react-router-dom';
+import '../../asset/css/responsive.css'
 
 class TopNavigation extends Component{
     constructor(){
