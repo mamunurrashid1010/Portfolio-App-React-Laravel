@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ApiUrl from '../../restApi/ApiUrl';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 class AllProject extends Component {
     constructor(){
@@ -14,15 +15,16 @@ class AllProject extends Component {
         this.state={
             data:[],
             loading: true,
+            error: false,
         }
     }
     componentDidMount(){
         axios.get(ApiUrl.getAllProjectUrl)
         .then(response=>{
-            this.setState({data:response.data, loading:false});
+            this.setState({data:response.data, loading:false, error:false});
         })
         .catch(error=>{
-
+            this.setState({error:true,loading:false});
         })
     }
 
@@ -46,6 +48,9 @@ class AllProject extends Component {
 
         if(this.state.loading == true){
             return <Loading/>;
+        }
+        else if(this.state.error == true){
+            return <Error/>
         }
         else{
             return (
