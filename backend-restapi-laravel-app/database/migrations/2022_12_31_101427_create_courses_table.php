@@ -17,7 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('short_description')->nullable(true);
-            $table->text('image')->nullable(true);
+            $table->text('images')->nullable(true);
             $table->string('long_title')->nullable(true);
             $table->longText('long_description')->nullable(true);
             $table->string('total_lecture')->nullable(true);

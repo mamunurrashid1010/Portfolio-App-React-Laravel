@@ -12,7 +12,7 @@ class ClientReviewController extends Controller
      * return all client reviews
      */
     public function getAllClientReviews(){
-        $clientReviews = ClientReview::select('id','name','description','image')->get();
+        $clientReviews = ClientReview::select('id','name','description','images')->get();
         return $clientReviews;
     }
 }
