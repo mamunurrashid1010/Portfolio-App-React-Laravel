@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    <div style="width: 100%;" id="root"></div>
+    <div  id="root"></div>
 
 <!-- script -->
 <script type="text/javascript" src="{{asset('js/Main.js')}}"></script>

@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import Menu from "./components/Menu/Menu";
-import Example from "./components/Example";
+import React, {Component, Fragment} from 'react';
+import {BrowserRouter} from "react-router-dom";
+import AppRoute from "./route/AppRoute";
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <Menu/>
-                <Example/>
-            </div>
+            <Fragment>
+                <BrowserRouter>
+                    <AppRoute/>
+                </BrowserRouter>
+            </Fragment>
         );
     }
 }
