@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Validator;
 class ContactsController extends Controller
 {
     /*
+     * show method
+     * return contact info
+     */
+    function show(){
+        $contacts = Contacts::all();
+        return $contacts;
+    }
+
+    /* --------------------------------- API --------------------------------------- */
+    /*
      * store method
      * store/save user contact details to db
      */
