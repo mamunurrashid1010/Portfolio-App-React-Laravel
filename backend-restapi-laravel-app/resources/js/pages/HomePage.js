@@ -5,7 +5,7 @@ class HomePage extends Component {
     render() {
         return (
             <Fragment>
-                <Menu>
+                <Menu title="Home">
                     <h1>This is Home page</h1>
                 </Menu>
             </Fragment>

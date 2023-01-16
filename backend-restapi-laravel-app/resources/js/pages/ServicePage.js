@@ -5,7 +5,7 @@ class ServicePage extends Component {
     render() {
         return (
             <Fragment>
-                <Menu>
+                <Menu title="Service">
                     <h1>This is service page</h1>
                 </Menu>
             </Fragment>
