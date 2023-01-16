@@ -18,6 +18,15 @@ class ContactsController extends Controller
         return $contacts;
     }
 
+    /*
+     * delete method
+     * delete contact info
+     */
+    function delete(Request $request){
+        $result = Contacts::where('id',$request->id)->delete();
+        return $result;
+    }
+
     /* --------------------------------- API --------------------------------------- */
     /*
      * store method

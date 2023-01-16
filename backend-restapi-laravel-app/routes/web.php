@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 # contact
 Route::get('/contact/show',[ContactsController::class,'show']);
+Route::post('/contact/delete',[ContactsController::class,'delete']);
 
 Route::get('{AnyRoute}', function () {
     return view('index');

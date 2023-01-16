@@ -39,13 +39,13 @@ class Menu extends Component {
             <Fragment>
                 <title>{this.props.title}</title>
                 <Navbar  expand="lg" className="fixed-top shadow-sm bg-white mb-5 py-3" variant="light" bg="white">
-                    <Navbar.Brand onClick={this.showHideSideNav}  href="#"><FontAwesomeIcon icon={faBars} /></Navbar.Brand>
+                    <Navbar.Brand onClick={this.showHideSideNav}  href="#"> <FontAwesomeIcon icon={faBars} /></Navbar.Brand>
                     <b>ADMIN DASHBOARD</b>
                 </Navbar>
 
                 <div className={this.state.sideNavClass}>
                     <NavLink> <Link className="NavItem" to="/"> <FontAwesomeIcon icon={faHome} /> <span className={this.state.NavText}>Home</span> </Link></NavLink>
-                    {/*<NavLink><Link className="NavItem" to="/contact"> <FontAwesomeIcon icon={faEnvelope} /> <span className={this.state.NavText}>Contact</span></Link></NavLink>*/}
+                    <NavLink><Link className="NavItem" to="/contact"> <FontAwesomeIcon icon={faEnvelope} /> <span className={this.state.NavText}>Contact</span></Link></NavLink>
                     {/*<NavLink><Link className="NavItem" to="/course"> <FontAwesomeIcon icon={faBookOpen} /> <span className={this.state.NavText}>Courses</span></Link></NavLink>*/}
                     {/*<NavLink><Link className="NavItem" to="/project"> <FontAwesomeIcon icon={faCode} /> <span className={this.state.NavText}>Projects</span></Link></NavLink>*/}
                     <NavLink><Link className="NavItem" to="/service"> <FontAwesomeIcon icon={faFolder} /> <span className={this.state.NavText}>Services</span></Link></NavLink>
