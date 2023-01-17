@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+# service
+Route::get('/service/show',[ServicesController::class,'show']);
+Route::post('/service/store',[ServicesController::class,'store']);
+Route::post('/service/delete',[ServicesController::class,'delete']);
 
 # contact
 Route::get('/contact/show',[ContactsController::class,'show']);

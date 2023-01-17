@@ -38,9 +38,8 @@ class Menu extends Component {
         return (
             <Fragment>
                 <title>{this.props.title}</title>
-                <Navbar  expand="lg" className="fixed-top shadow-sm bg-white mb-5 py-3" variant="light" bg="white">
-                    <Navbar.Brand onClick={this.showHideSideNav}  href="#"> <FontAwesomeIcon icon={faBars} /></Navbar.Brand>
-                    <b>ADMIN DASHBOARD</b>
+                <Navbar  expand="lg" className="fixed-top shadow-sm bg-white mb-5 py-3" style={{backgroundImage: 'linear-gradient(144deg, #0dcaf0, #749ad1 50%, #72aadb)'}} variant="light" bg="white">
+                    <Navbar.Brand onClick={this.showHideSideNav}  href="#"> <FontAwesomeIcon icon={faBars} /> <b> PORTFOLIO APP</b></Navbar.Brand>
                 </Navbar>
 
                 <div className={this.state.sideNavClass}>
