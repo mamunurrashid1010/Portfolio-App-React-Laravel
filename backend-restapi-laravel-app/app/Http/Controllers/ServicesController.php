@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Custom\Common;
 use App\Models\Services;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -41,18 +42,20 @@ class ServicesController extends Controller
             return response()->json($validation->errors(),422);
         }
 
-        $image='';
+        $imageUrl='';
         if (!empty($request->image))
         {
             $image = 'service_'.time().'.'.$request->image->extension();
             $request->image->move(public_path('images/'), $image);
+            // full image path
+            $imageUrl = Common::baseURL()."/images/".$image;
         }
 
         // save/store
         $result = Services::insert([
             'name'          => $data['name'],
             'description'   => $data['description'],
-            'image'         => $image,
+            'image'         => $imageUrl,
             'created_at'    => Carbon::now(),
         ]);
 
@@ -68,9 +71,10 @@ class ServicesController extends Controller
         if($service){
             $result = Services::where('id',$request->id)->delete();
             if($result){
+                $oldImage = explode('/',$service->image)[4] ;
                 #delete old image
-                if (File::exists(public_path('images/'.$service->image))) {
-                    File::delete(public_path('images/'.$service->image));
+                if (File::exists(public_path('images/'.$oldImage))) {
+                    File::delete(public_path('images/'.$oldImage));
                 }
                 return true;
             }

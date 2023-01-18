@@ -5,6 +5,8 @@ import {Col, Container, Row, Modal, Button,Form} from "react-bootstrap";
 import Loading from "../components/Loading/Loading";
 import Error from "../components/Error/Error";
 import DataTable from "react-data-table-component";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class ServicePage extends Component {
     constructor(){
@@ -37,12 +39,12 @@ class ServicePage extends Component {
             axios.post('/service/delete',{id:id})
                 .then(res=>{
                     if(res.data == 1 && res.status== 200){
-                        alert("Delete Success.");
                         this.componentDidMount();
+                        toast.success("Success");
                     }
                 })
                 .catch(e=>{
-                    alert("Fail!");
+                    toast.error("Fail!");
                 })
         }
 
@@ -76,14 +78,14 @@ class ServicePage extends Component {
             .then(response=>{
                 console.log(response)
                 if(response.data == 1){
-                    alert("Data Added Successfully.");
                     this.addModalClose();
                     this.componentDidMount();
+                    toast.success("Success");
                 }
             })
             .catch(error=>{
                 this.addModalClose();
-                alert("Fail!");
+                toast.error("Fail!");
             })
     }
 
@@ -107,10 +109,10 @@ class ServicePage extends Component {
             );
         }
         else{
-            const basePath = window.location.protocol+"//"+window.location.host+"/images/";
+            //const basePath = window.location.protocol+"//"+window.location.host+"/images/";
             const columns = [
                 // { name: 'ID', selector: row => row.id, sortable: true, style:{maxWidth:'120px'}},
-                { name: 'Image', selector: row => <img src={basePath+row.image} width='80px' height='80px' /> },
+                { name: 'Image', selector: row => <img src={row.image} width='80px' height='80px' /> },
                 { name: 'Name', selector: row => row.name, sortable: true,},
                 { name: 'Service Details', selector: row => row.description,},
                 { name: 'Action', cell: row => <button className="btn btn-danger btn-sm" onClick={()=>this.delete(row.id)}>Delete</button>,},
@@ -130,24 +132,32 @@ class ServicePage extends Component {
                         //paddingLeft: '0 8px',
                         //justifyContent: 'center',
                         backgroundColor: '#dee3e9',
-
                     },
                 },
             }
 
             return (
                 <Fragment>
-                    {/* menu & table data */}
-                    <Menu title="Contact">
-                        <Container className="">
-                            <Row>
-                                <Col sm={12} md={12} lg={12}>
-                                    <button className="addButton float-end" onClick={this.addModalOpen}> Add New Service</button>
-                                    <DataTable columns={columns} data={data} title="Service List" customStyles={tableCustomStyles} pagination fixedHeader highlightOnHover selectableRows onSelectedRowsChange={handleChange} />
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Menu>
+                    <Container>
+                        <Row>
+                            <Col sm={12} md={12} lg={12} xl={12}>
+                                {/* toast message container */}
+                                <ToastContainer />
+                                {/* menu & table data */}
+                                <Menu title="Service">
+                                    <Container className="">
+                                        <Row>
+                                            <Col sm={12} md={12} lg={12}>
+                                                <button className="addButton float-end" onClick={this.addModalOpen}> Add New Service</button>
+                                                <DataTable columns={columns} data={data} title="Service List" customStyles={tableCustomStyles} pagination fixedHeader highlightOnHover selectableRows onSelectedRowsChange={handleChange} />
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </Menu>
+                            </Col>
+                        </Row>
+                    </Container>
+
 
                     {/*  Add modal  */}
                     <Modal size="lg" show={this.state.addModal} onHide={this.addModalClose}>
