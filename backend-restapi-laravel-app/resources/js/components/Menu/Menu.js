@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Navbar,NavLink} from "react-bootstrap";
+import {Button, Nav, Navbar, NavLink, Form} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faHome,faEnvelope,faBookOpen,faCode,faFolder,faComment,faPowerOff} from "@fortawesome/free-solid-svg-icons";
 // import ContactPage from "../pages/ContactPage";
@@ -15,8 +15,8 @@ class Menu extends Component {
         super(props);
         this.state={
             sideNav:false,
-            sideNavClass:"sidenavClose",
-            NavText:"d-none",
+            sideNavClass:"sidenavOpen",
+            NavText:"",
             mainDivOverlay:"main-overlay-close"
         }
 
@@ -38,8 +38,8 @@ class Menu extends Component {
         return (
             <Fragment>
                 <title>{this.props.title}</title>
-                <Navbar  expand="lg" className="fixed-top shadow-sm bg-white mb-5 py-3" style={{backgroundImage: 'linear-gradient(144deg, #0dcaf0, #749ad1 50%, #72aadb)'}} variant="light" bg="white">
-                    <Navbar.Brand onClick={this.showHideSideNav}  href="#"> <FontAwesomeIcon icon={faBars} /> <b> PORTFOLIO APP</b></Navbar.Brand>
+                <Navbar  expand="lg" className="fixed-top shadow-sm bg-white mb-5 py-3" style={{backgroundImage: 'linear-gradient(144deg, rgb(251 251 251), rgb(215 221 229) 50%, rgb(219 219 219))'}} variant="light" bg="white">
+                    <Navbar.Brand onClick={this.showHideSideNav}  href="#"> &nbsp;&nbsp;<FontAwesomeIcon icon={faBars} /> <b style={{color:'#7e6e3d'}}> PORTFOLIO APP</b></Navbar.Brand>
                 </Navbar>
 
                 <div className={this.state.sideNavClass}>
@@ -51,9 +51,9 @@ class Menu extends Component {
                     {/*<NavLink><Link className="NavItem" to="/review"> <FontAwesomeIcon icon={faComment} /> <span className={this.state.NavText}>Review</span></Link></NavLink>*/}
                     <a className=" ml-3 NavItem" href="/logout"> <FontAwesomeIcon icon={faPowerOff} /> <span className={this.state.NavText}>Sign Out</span></a>
                 </div>
-                <div onClick={this.showHideSideNav} className={this.state.mainDivOverlay}>
-
-                </div>
+                {/* overlay */}
+                {/*<div onClick={this.showHideSideNav} className={this.state.mainDivOverlay}>*/}
+                {/*</div>*/}
 
                 <div className="mainDiv">
                     {this.props.children}

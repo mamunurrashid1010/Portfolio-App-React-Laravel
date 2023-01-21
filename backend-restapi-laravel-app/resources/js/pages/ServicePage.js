@@ -138,25 +138,15 @@ class ServicePage extends Component {
 
             return (
                 <Fragment>
-                    <Container>
-                        <Row>
-                            <Col sm={12} md={12} lg={12} xl={12}>
-                                {/* toast message container */}
-                                <ToastContainer />
-                                {/* menu & table data */}
-                                <Menu title="Service">
-                                    <Container className="">
-                                        <Row>
-                                            <Col sm={12} md={12} lg={12}>
-                                                <button className="addButton float-end" onClick={this.addModalOpen}> Add New Service</button>
-                                                <DataTable columns={columns} data={data} title="Service List" customStyles={tableCustomStyles} pagination fixedHeader highlightOnHover selectableRows onSelectedRowsChange={handleChange} />
-                                            </Col>
-                                        </Row>
-                                    </Container>
-                                </Menu>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <div className="p-3 m-2">
+                        {/* toast message container */}
+                        <ToastContainer />
+                        {/* menu & table data */}
+                        <Menu title="Service">
+                            <button className="addButton float-end" onClick={this.addModalOpen}> Add New Service</button>
+                            <DataTable columns={columns} data={data} title="Service List" customStyles={tableCustomStyles} pagination fixedHeader highlightOnHover selectableRows onSelectedRowsChange={handleChange} />
+                        </Menu>
+                    </div>
 
 
                     {/*  Add modal  */}

@@ -91,13 +91,9 @@ class ContactPage extends Component {
             return (
                 <Fragment>
                     <Menu title="Contact">
-                        <Container>
-                            <Row>
-                                <Col sm={12} md={12} lg={12}>
-                                    <DataTable columns={columns} data={data} title="Contact List" pagination selectableRows fixedHeader highlightOnHover />
-                                </Col>
-                            </Row>
-                        </Container>
+                        <div className="p-3 m-2">
+                            <DataTable columns={columns} data={data} title="Contact List" pagination selectableRows fixedHeader highlightOnHover />
+                        </div>
                     </Menu>
                 </Fragment>
             );

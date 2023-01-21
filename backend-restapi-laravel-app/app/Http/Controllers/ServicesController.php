@@ -90,7 +90,7 @@ class ServicesController extends Controller
      * return all service list
      */
     public function getAllService(){
-        $services = Services::select('id','name','description','images')->get();
+        $services = Services::select('id','name','description','image')->get();
         return $services;
     }
 }
