@@ -27,6 +27,8 @@ Route::get('/logout',[LoginController::class,'logout']);
 # service
 Route::get('/service/show',[ServicesController::class,'show'])->middleware('loginCheck');
 Route::post('/service/store',[ServicesController::class,'store'])->middleware('loginCheck');
+Route::post('/service/edit',[ServicesController::class,'edit'])->middleware('loginCheck');
+Route::post('/service/update',[ServicesController::class,'update'])->middleware('loginCheck');
 Route::post('/service/delete',[ServicesController::class,'delete'])->middleware('loginCheck');
 
 # contact

@@ -17,6 +17,7 @@ class ServicePage extends Component {
             isError:false,
             addModal: false,
             validationErrorMessage:'',
+            editModal: false,
         }
     }
     componentDidMount() {
@@ -89,6 +90,65 @@ class ServicePage extends Component {
             })
     }
 
+    // edit modal open,close handle
+    editModalOpen=()=>{
+        this.setState({editModal:true});
+    }
+    editModalClose=()=>{
+        this.setState({editModal:false});
+    }
+
+    //edit
+    edit=(id)=>{
+        this.editModalOpen();
+        axios.post('/service/edit',{id:id})
+            .then(res=>{
+                if(res.data && res.status== 200){
+                    document.getElementById('e_id').value=res.data.id;
+                    document.getElementById('e_name').value=res.data.name;
+                    document.getElementById('e_description').value=res.data.description;
+                }
+            })
+            .catch(e=>{
+                this.editModalClose();
+                toast.error("Error!");
+            })
+    }
+
+    // update
+    update=()=>{
+        let id = document.getElementById('e_id').value;
+        let name = document.getElementById('e_name').value;
+        let description = document.getElementById('e_description').value;
+        let image = document.getElementById('e_image').files[0];
+        // text field validation
+        if(name.length <= 0)
+            this.setState({validationErrorMessage:"Name Empty!"});
+
+        let data=new FormData();
+        data.append('id',id);
+        data.append('name',name);
+        data.append('description',description);
+        if(image){
+            data.append('image',image);
+        }
+        let config={headers:{'content-type': 'multipart/form-data'}}
+
+        axios.post('/service/update',data,config)
+            .then(response=>{
+                //console.log(response)
+                if(response.data == 1){
+                    this.editModalClose();
+                    this.componentDidMount();
+                    toast.success("Success");
+                }
+            })
+            .catch(error=>{
+                this.editModalClose();
+                toast.error("Fail!");
+            })
+    }
+
     render() {
         if(this.state.isLoading == true){
            return (
@@ -115,7 +175,12 @@ class ServicePage extends Component {
                 { name: 'Image', selector: row => <img src={row.image} width='80px' height='80px' /> },
                 { name: 'Name', selector: row => row.name, sortable: true,},
                 { name: 'Service Details', selector: row => row.description,},
-                { name: 'Action', cell: row => <button className="btn btn-danger btn-sm" onClick={()=>this.delete(row.id)}>Delete</button>,},
+                { name: 'Action', cell: row =>
+                        [
+                        <button className="btn btn-warning btn-sm" onClick={()=>this.edit(row.id)}>Edit</button>,
+                        <button className="btn btn-danger btn-sm" onClick={()=>this.delete(row.id)}>Delete</button>,
+                        ]
+                },
             ];
 
             const data = this.state.data;
@@ -173,6 +238,34 @@ class ServicePage extends Component {
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.addModalClose}> Close </Button>
                             <Button variant="primary" onClick={this.add}> Save </Button>
+                        </Modal.Footer>
+                    </Modal>
+
+                    {/*  Edit modal  */}
+                    <Modal size="lg" show={this.state.editModal} onHide={this.editModalClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Edit Service</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form>
+                                <input type="hidden" id="e_id" value="" required />
+                                <Form.Group className="mb-3">
+                                    <Form.Label className='text-left'>Service Name <span className='text-danger'>*</span></Form.Label>
+                                    <Form.Control type="text" id="e_name" placeholder="Enter name" required />
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Label className='text-left'>Description</Form.Label>
+                                    <Form.Control id="e_description" as="textarea" style={{ height: '100px' }} />
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Label className='text-left'>Image</Form.Label>
+                                    <Form.Control type="file" id="e_image"   />
+                                </Form.Group>
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={this.editModalClose}> Close </Button>
+                            <Button variant="success" onClick={this.update}> Update Now </Button>
                         </Modal.Footer>
                     </Modal>
 

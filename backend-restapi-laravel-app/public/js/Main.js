@@ -9943,12 +9943,71 @@ var ServicePage = /*#__PURE__*/function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("Fail!");
       });
     });
+    _defineProperty(_assertThisInitialized(_this), "editModalOpen", function () {
+      _this.setState({
+        editModal: true
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "editModalClose", function () {
+      _this.setState({
+        editModal: false
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "edit", function (id) {
+      _this.editModalOpen();
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/service/edit', {
+        id: id
+      }).then(function (res) {
+        if (res.data && res.status == 200) {
+          document.getElementById('e_id').value = res.data.id;
+          document.getElementById('e_name').value = res.data.name;
+          document.getElementById('e_description').value = res.data.description;
+        }
+      })["catch"](function (e) {
+        _this.editModalClose();
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("Error!");
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "update", function () {
+      var id = document.getElementById('e_id').value;
+      var name = document.getElementById('e_name').value;
+      var description = document.getElementById('e_description').value;
+      var image = document.getElementById('e_image').files[0];
+      // text field validation
+      if (name.length <= 0) _this.setState({
+        validationErrorMessage: "Name Empty!"
+      });
+      var data = new FormData();
+      data.append('id', id);
+      data.append('name', name);
+      data.append('description', description);
+      if (image) {
+        data.append('image', image);
+      }
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/service/update', data, config).then(function (response) {
+        //console.log(response)
+        if (response.data == 1) {
+          _this.editModalClose();
+          _this.componentDidMount();
+          react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.success("Success");
+        }
+      })["catch"](function (error) {
+        _this.editModalClose();
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__.toast.error("Fail!");
+      });
+    });
     _this.state = {
       data: [],
       isLoading: true,
       isError: false,
       addModal: false,
-      validationErrorMessage: ''
+      validationErrorMessage: '',
+      editModal: false
     };
     return _this;
   }
@@ -10017,13 +10076,19 @@ var ServicePage = /*#__PURE__*/function (_Component) {
         }, {
           name: 'Action',
           cell: function cell(row) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            return [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              className: "btn btn-warning btn-sm",
+              onClick: function onClick() {
+                return _this3.edit(row.id);
+              },
+              children: "Edit"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
               className: "btn btn-danger btn-sm",
               onClick: function onClick() {
                 return _this3["delete"](row.id);
               },
               children: "Delete"
-            });
+            })];
           }
         }];
         var data = this.state.data;
@@ -10121,6 +10186,70 @@ var ServicePage = /*#__PURE__*/function (_Component) {
                 variant: "primary",
                 onClick: this.add,
                 children: " Save "
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            size: "lg",
+            show: this.state.editModal,
+            onHide: this.editModalClose,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"].Header, {
+              closeButton: true,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"].Title, {
+                children: "Edit Service"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"].Body, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                  type: "hidden",
+                  id: "e_id",
+                  value: "",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Group, {
+                  className: "mb-3",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Label, {
+                    className: "text-left",
+                    children: ["Service Name ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                      className: "text-danger",
+                      children: "*"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Control, {
+                    type: "text",
+                    id: "e_name",
+                    placeholder: "Enter name",
+                    required: true
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Group, {
+                  className: "mb-3",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Label, {
+                    className: "text-left",
+                    children: "Description"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Control, {
+                    id: "e_description",
+                    as: "textarea",
+                    style: {
+                      height: '100px'
+                    }
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Group, {
+                  className: "mb-3",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Label, {
+                    className: "text-left",
+                    children: "Image"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["default"].Control, {
+                    type: "file",
+                    id: "e_image"
+                  })]
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"].Footer, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__["default"], {
+                variant: "danger",
+                onClick: this.editModalClose,
+                children: " Close "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__["default"], {
+                variant: "success",
+                onClick: this.update,
+                children: " Update Now "
               })]
             })]
           })]

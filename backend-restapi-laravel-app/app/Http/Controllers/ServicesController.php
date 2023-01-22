@@ -63,6 +63,69 @@ class ServicesController extends Controller
     }
 
     /*
+     * edit method
+     * return specific service data for edit
+     */
+    function edit(Request $request){
+        $service = Services::select('id','name','description','image')->where('id',$request->id)->first();
+        return $service;
+    }
+
+    /*
+     * update method
+     * update service info
+     */
+    function update(Request $request){
+        $data=$request->all();
+        // validation
+        $rule=[
+            'id'    => 'required',
+            'name'  => 'required',
+            'image' => 'image|mimes:jpg,png,jpeg|max:1000'
+        ];
+        $customMessage=[
+            'id.required'    => 'Id required',
+            'name.required'  => 'Name is required',
+            'image.image'    => 'Image must be an image!',
+            'image.mimes'    => 'Please add a valid image format. Like- jpg/png/jpeg',
+            'image.max'      => 'Maximum image size 1000kb',
+        ];
+        $validation=Validator::make($data,$rule,$customMessage);
+        if($validation->fails()){
+            return response()->json($validation->errors(),422);
+        }
+
+        # image
+        $oldImage=Services::select('image')->where('id',$request->id)->first();
+        if (!empty($request->image))
+        {
+            $image = 'service_'.date('YmdHims').'.'.$request->image->extension();
+            $request->image->move(public_path('images/'), $image);
+            # full image path
+            $image = Common::baseURL()."/images/".$image;
+
+            #delete old image
+            $oldImage = explode('/',$oldImage->image)[4] ;
+            if (File::exists(public_path('images/'.$oldImage))) {
+                File::delete(public_path('images/'.$oldImage));
+            }
+        }
+        else
+            $image=$oldImage->image;
+
+        # update
+        $dataUpdate = [
+            'name'          => $data['name'],
+            'description'   => $data['description'],
+            'image'         => $image,
+            'updated_at'    => Carbon::now(),
+        ];
+        $result  = Services::where('id',$request->id)->update($dataUpdate);
+
+        return $result;
+    }
+
+    /*
      * delete method
      * delete service record
      */
