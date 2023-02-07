@@ -23,3 +23,11 @@ This is a admin panel of portfolio app and in this admin panel i developed using
 * Contact Page
 * Terms & Condition Page
 * Refund Policy Page
+
+## How to Install and Run the Project
+1. ```git clone https://github.com/mamunurrashid1010/Portfolio-App-React-Laravel.git my-app```
+2. ```cd my-app```
+3. ```cd backend-restapi-laravel-app```
+4. ```composer install```
+5. Run the project : ```php artisan serve```
+6. You can see the project on ```http://localhost:8000```
